@@ -1,0 +1,53 @@
+
+
+/* Unimplemented functions */
+
+#include "gllocal.h"
+#include "glcontext/glerror.h"
+
+#ifdef UNIMPLEMENTED
+#undef UNIMPLEMENTED
+#endif
+
+#define UNIMPLEMENTED(a) \
+void FUNCAPI __gllocal_##a (void) {\
+  __glerror(__LINE__, __FILE__, 0, "Unimplemented function: " #a); \
+}
+
+
+UNIMPLEMENTED(CopyPixels)
+UNIMPLEMENTED(CopyTexImage1D)
+UNIMPLEMENTED(CopyTexImage2D)
+UNIMPLEMENTED(CopyTexSubImage1D)
+UNIMPLEMENTED(CopyTexSubImage2D)
+UNIMPLEMENTED(EvalCoord1d)
+UNIMPLEMENTED(EvalCoord1dv)
+UNIMPLEMENTED(EvalCoord1f)
+UNIMPLEMENTED(EvalCoord1fv)
+UNIMPLEMENTED(EvalCoord2d)
+UNIMPLEMENTED(EvalCoord2dv)
+UNIMPLEMENTED(EvalCoord2f)
+UNIMPLEMENTED(EvalCoord2fv)
+UNIMPLEMENTED(EvalMesh1)
+UNIMPLEMENTED(EvalMesh2)
+UNIMPLEMENTED(EvalPoint1)
+UNIMPLEMENTED(EvalPoint2)
+UNIMPLEMENTED(FeedbackBuffer)
+UNIMPLEMENTED(SelectBuffer)
+UNIMPLEMENTED(IsTexture)
+UNIMPLEMENTED(InitNames)
+UNIMPLEMENTED(LoadName)
+UNIMPLEMENTED(PassThrough)
+UNIMPLEMENTED(PopAttrib)
+UNIMPLEMENTED(PopClientAttrib)
+UNIMPLEMENTED(PopName)
+UNIMPLEMENTED(PushAttrib)
+UNIMPLEMENTED(PushClientAttrib)
+UNIMPLEMENTED(PushName)
+UNIMPLEMENTED(ReadPixels)
+UNIMPLEMENTED(DrawPixels)
+UNIMPLEMENTED(CallLists)
+UNIMPLEMENTED(CallList)
+UNIMPLEMENTED(Bitmap)
+UNIMPLEMENTED(Accum)
+UNIMPLEMENTED(RenderMode)

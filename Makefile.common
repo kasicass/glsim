@@ -1,0 +1,46 @@
+
+OBJDIR 	  = built
+OBJSUFFIX = .o
+
+BINDIR    = ../bin
+
+OBJS      := $(addprefix $(OBJDIR)/, $(FILES))
+OBJS      := $(addsuffix $(OBJSUFFIX), $(OBJS))
+
+ECHO	  := echo
+CCARGS_C  := -c
+MKDIR     := mkdir
+SHARED_LDFLAGS = -shared 
+CCARGS    += -I.. -DGLCONTEXT_EXPORTS -g
+
+LIBPREFIX := lib
+LIBSUFFIX := .so
+
+LIBNAME  := $(addprefix $(LIBPREFIX), $(LIBRARY))
+LIBNAME  := $(addsuffix $(LIBSUFFIX), $(LIBNAME))
+
+LIBRARIES_LINK := $(addprefix -l, $(LIBRARIES)) 
+
+LDFLAGS += -L$(BINDIR)
+
+all: arch $(BINDIR)/$(LIBNAME)
+
+arch: $(PRECOMP)
+	@if test ! -d $(OBJDIR); then $(MKDIR) $(OBJDIR); fi
+	@if test ! -d $(BINDIR); then $(MKDIR) $(BINDIR); fi
+
+$(OBJDIR)/%$(OBJSUFFIX): %.c Makefile
+	@$(ECHO) "Compiling " $<
+	@$(CC) -o $@ $(CCARGS) -c $(CFLAGS) $<
+
+$(OBJDIR)/%$(OBJSUFFIX): %.s Makefile
+	@$(ECHO) "Assembling " $<
+	@$(CC) -o $@ $(CCARGS) -c $(CFLAGS) $<
+
+$(BINDIR)/$(LIBNAME): $(OBJS)
+	@$(ECHO) Linking $@
+	@$(LD) $(SHARED_LDFLAGS) -o $(BINDIR)/$@ $(OBJS) $(LDFLAGS)  $(LIBRARIES_LINK)
+
+clean:
+	@rm -rf $(OBJDIR) $(BINDIR)/$(LIBNAME) $(SLOP) *~
+
