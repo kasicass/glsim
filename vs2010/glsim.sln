@@ -6,6 +6,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glcontext", "glcontext\glcontext.vcxproj", "{A39A9666-9561-42F0-BA11-F7B199C633E4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opengl32", "opengl32\opengl32.vcxproj", "{3C3932BD-5FCE-4B69-AA30-F0F2A4BF073D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A39A9666-9561-42F0-BA11-F7B199C633E4} = {A39A9666-9561-42F0-BA11-F7B199C633E4}
+		{AC6489F8-95D4-431D-9AC6-6FDD71A0DC29} = {AC6489F8-95D4-431D-9AC6-6FDD71A0DC29}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
