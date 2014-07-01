@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\glcontext\glbase.h" />
+    <ClInclude Include="..\..\glcontext\glbuffer.h" />
+    <ClInclude Include="..\..\glcontext\glclient.h" />
+    <ClInclude Include="..\..\glcontext\glconfig.h" />
+    <ClInclude Include="..\..\glcontext\glcontext.h" />
+    <ClInclude Include="..\..\glcontext\glcurrent.h" />
+    <ClInclude Include="..\..\glcontext\glenable.h" />
+    <ClInclude Include="..\..\glcontext\glerror.h" />
+    <ClInclude Include="..\..\glcontext\gleval.h" />
+    <ClInclude Include="..\..\glcontext\glfog.h" />
+    <ClInclude Include="..\..\glcontext\glget.h" />
+    <ClInclude Include="..\..\glcontext\glhint.h" />
+    <ClInclude Include="..\..\glcontext\glimaging.h" />
+    <ClInclude Include="..\..\glcontext\gllighting.h" />
+    <ClInclude Include="..\..\glcontext\glline.h" />
+    <ClInclude Include="..\..\glcontext\gllists.h" />
+    <ClInclude Include="..\..\glcontext\glmystate.h" />
+    <ClInclude Include="..\..\glcontext\glpixel.h" />
+    <ClInclude Include="..\..\glcontext\glpolygon.h" />
+    <ClInclude Include="..\..\glcontext\glselection.h" />
+    <ClInclude Include="..\..\glcontext\glstencil.h" />
+    <ClInclude Include="..\..\glcontext\gltexture.h" />
+    <ClInclude Include="..\..\glcontext\gltrans.h" />
+    <ClInclude Include="..\..\glcontext\gltypes.h" />
+    <ClInclude Include="..\..\glcontext\glviewport.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\glcontext\glbuffer.c" />
+    <ClCompile Include="..\..\glcontext\glclient.c" />
+    <ClCompile Include="..\..\glcontext\glconfig.c" />
+    <ClCompile Include="..\..\glcontext\glcontext.c" />
+    <ClCompile Include="..\..\glcontext\glcurrent.c" />
+    <ClCompile Include="..\..\glcontext\glcurrent_gen.c" />
+    <ClCompile Include="..\..\glcontext\glenable.c" />
+    <ClCompile Include="..\..\glcontext\glerror.c" />
+    <ClCompile Include="..\..\glcontext\gleval.c" />
+    <ClCompile Include="..\..\glcontext\glfog.c" />
+    <ClCompile Include="..\..\glcontext\glget.c" />
+    <ClCompile Include="..\..\glcontext\glhint.c" />
+    <ClCompile Include="..\..\glcontext\glimaging.c" />
+    <ClCompile Include="..\..\glcontext\glisenabled.c" />
+    <ClCompile Include="..\..\glcontext\gllighting.c" />
+    <ClCompile Include="..\..\glcontext\glline.c" />
+    <ClCompile Include="..\..\glcontext\gllists.c" />
+    <ClCompile Include="..\..\glcontext\glmisc.c" />
+    <ClCompile Include="..\..\glcontext\glmystate.c" />
+    <ClCompile Include="..\..\glcontext\glpixel.c" />
+    <ClCompile Include="..\..\glcontext\glpolygon.c" />
+    <ClCompile Include="..\..\glcontext\glrasterpos.c" />
+    <ClCompile Include="..\..\glcontext\glrect.c" />
+    <ClCompile Include="..\..\glcontext\glselection.c" />
+    <ClCompile Include="..\..\glcontext\glstencil.c" />
+    <ClCompile Include="..\..\glcontext\gltexture.c" />
+    <ClCompile Include="..\..\glcontext\gltrans.c" />
+    <ClCompile Include="..\..\glcontext\glviewport.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\glcontext\glapi.txt" />
+    <None Include="..\..\glcontext\glcurrent.pl" />
+    <None Include="..\..\glcontext\glcurrent_types.pl" />
+    <None Include="..\..\glcontext\glget.pl" />
+    <None Include="..\..\glcontext\glget.txt" />
+    <None Include="..\..\glcontext\glisenabled.pl" />
+    <None Include="..\..\glcontext\glisenabled.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A39A9666-9561-42F0-BA11-F7B199C633E4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>glcontext</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\build\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\build\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;_USRDLL;GLCONTEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;_USRDLL;GLCONTEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
