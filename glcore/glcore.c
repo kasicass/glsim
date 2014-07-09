@@ -219,63 +219,64 @@ __glcore_Finish (GLcontext *g)
 static void
 clear_scissor_rect_ui (GLcontext *g, unsigned int *ptr, unsigned int value)
 {
-    int x, xmin, xmax;
-    int y, ymin, ymax;
-    int w = g->framebuffer->width;
+	int x, xmin, xmax;
+	int y, ymin, ymax;
+	int w = g->framebuffer->width;
     
-    __glcore_get_scissor_rect(g, &xmin, &xmax, &ymin, &ymax);
+	__glcore_get_scissor_rect(g, &xmin, &xmax, &ymin, &ymax);
 
-    if (xmin >= xmax || ymin >= ymax)
-	return;
+	if (xmin >= xmax || ymin >= ymax)
+		return;
 
-    for (y = ymin; y < ymax; y++) {
-	unsigned int *p = &ptr[y * w + xmin];
-	for (x = xmin; x < xmax; x++)
-	    *p++ = value;
-    }
+	for (y = ymin; y < ymax; y++) {
+		unsigned int *p = &ptr[y * w + xmin];
+		for (x = xmin; x < xmax; x++)
+			*p++ = value;
+	}
 }
 
 static void
 clear_scissor_rect_f (GLcontext *g, GL_float *ptr, GL_float value)
 {
-    int x, xmin, xmax;
-    int y, ymin, ymax;
-    int w = g->framebuffer->width;    
+	int x, xmin, xmax;
+	int y, ymin, ymax;
+	int w = g->framebuffer->width;    
 
-    __glcore_get_scissor_rect(g, &xmin, &xmax, &ymin, &ymax);
+	__glcore_get_scissor_rect(g, &xmin, &xmax, &ymin, &ymax);
 
-    if (xmin >= xmax || ymin >= ymax)
-	return;
+	if (xmin >= xmax || ymin >= ymax)
+		return;
 
-    for (y = ymin; y < ymax; y++) {
-	GL_float *p = &ptr[y * w + xmin];
-	for (x = xmin; x < xmax; x++)
-	    *p++ = value;
-    }
+	for (y = ymin; y < ymax; y++) {
+		GL_float *p = &ptr[y * w + xmin];
+		for (x = xmin; x < xmax; x++)
+			*p++ = value;
+	}
 }
 
 void
 __glcore_Clear (GLcontext *g, GLbitfield mask)
 {
-    GLframebuffer *fb = g->framebuffer;
+	GLframebuffer *fb = g->framebuffer;
 
-    if (mask & GL_COLOR_BUFFER_BIT) {
-	GL_float clear_color[4];
-	unsigned int packed_clear_color;
+	if (mask & GL_COLOR_BUFFER_BIT) {
+		GL_float clear_color[4];
+		unsigned int packed_clear_color;
 
-	vinit_col(clear_color, g->buffer.colorclearvalue);
-	packed_clear_color = cpack(clear_color);
+		vinit_col(clear_color, g->buffer.colorclearvalue);
+		packed_clear_color = cpack(clear_color);
 
-	if (__glcore_draw_buffer_front_left(g))
-	    clear_scissor_rect_ui(g, fb->color[0], packed_clear_color);
-	if (__glcore_draw_buffer_back_left(g) && fb->isdouble)
-	    clear_scissor_rect_ui(g, fb->color[1], packed_clear_color);
-    }
-    if (mask & GL_DEPTH_BUFFER_BIT)
-	clear_scissor_rect_f(g, fb->depth, g->buffer.depthclearvalue);
+		if (__glcore_draw_buffer_front_left(g))
+			clear_scissor_rect_ui(g, fb->color[0], packed_clear_color);
+		if (__glcore_draw_buffer_back_left(g) && fb->isdouble)
+			clear_scissor_rect_ui(g, fb->color[1], packed_clear_color);
+	}
+
+	if (mask & GL_DEPTH_BUFFER_BIT)
+		clear_scissor_rect_f(g, fb->depth, g->buffer.depthclearvalue);
 
 #ifdef DEBUG_GLCORE_CALLS
-    fprintf(stderr, "__glcore_Clear\n");
+	fprintf(stderr, "__glcore_Clear\n");
 #endif
 }
 

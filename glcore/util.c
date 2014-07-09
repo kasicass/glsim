@@ -130,22 +130,22 @@ __glcore_dump_primitives (GL_primitive_list *pl)
 void
 __glcore_get_scissor_rect (GLcontext *g, int *x0, int *x1, int *y0, int *y1)
 {
-    int xmin = 0;
-    int xmax = g->framebuffer->width;
-    int ymin = 0;
-    int ymax = g->framebuffer->height;
+	int xmin = 0;
+	int xmax = g->framebuffer->width;
+	int ymin = 0;
+	int ymax = g->framebuffer->height;
 
-    if (g->viewport.scissortest) {
-	xmin = max(xmin, g->viewport.s_x);
-	xmax = min(xmax, g->viewport.s_x + g->viewport.s_w);
-	ymin = max(ymin, g->viewport.s_y);
-	ymax = min(ymax, g->viewport.s_y + g->viewport.s_h);
-    }
+	if (g->viewport.scissortest) {
+		xmin = max(xmin, g->viewport.s_x);
+		xmax = min(xmax, g->viewport.s_x + g->viewport.s_w);
+		ymin = max(ymin, g->viewport.s_y);
+		ymax = min(ymax, g->viewport.s_y + g->viewport.s_h);
+	}
 
-    *x0 = xmin;
-    *x1 = xmax;
-    *y0 = ymin;
-    *y1 = ymax;
+	*x0 = xmin;
+	*x1 = xmax;
+	*y0 = ymin;
+	*y1 = ymax;
 }
 
 #define do_front_left(x) (((x) == GL_FRONT) || \
@@ -158,13 +158,13 @@ __glcore_get_scissor_rect (GLcontext *g, int *x0, int *x1, int *y0, int *y1)
 int
 __glcore_draw_buffer_front_left (GLcontext *g)
 {
-    return do_front_left(g->buffer.drawbuffer);
+	return do_front_left(g->buffer.drawbuffer);
 }
 
 int
 __glcore_draw_buffer_back_left (GLcontext *g)
 {
-    return do_back_left(g->buffer.drawbuffer);
+	return do_back_left(g->buffer.drawbuffer);
 }
 
 static int
